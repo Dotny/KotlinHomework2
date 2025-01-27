@@ -10,7 +10,7 @@ fun commission(cardType: String, amountTransferPerMonth: Int, amountTransfer: In
     }
 }
 
-fun cardToCommisions(cardType: String, amountTransferPerMonth: Int, amountTransfer: Int): Int{
+fun cardToCommisions(cardType: String, amountTransferPerMonth: Int = 0, amountTransfer: Int): Int{
     when(cardType){
         "Mastercard" -> when{
                             amountTransferPerMonth > 75000 -> return (amountTransfer * 0.006 + 20).toInt()
