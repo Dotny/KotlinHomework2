@@ -1,8 +1,8 @@
 fun main(){
-    commission("Mastercard", 60000, 100000)
+    commission("Mastercard", amountTransfer = 75000)
 }
 
-fun commission(cardType: String, amountTransferPerMonth: Int, amountTransfer: Int) {
+fun commission(cardType: String, amountTransferPerMonth: Int = 0, amountTransfer: Int) {
     when{
         amountTransfer > 150000 -> println("превышен лимит переводов за день")
         amountTransferPerMonth + amountTransfer > 600_000 -> println("Превышен лимит переводов за месяц")
@@ -10,7 +10,7 @@ fun commission(cardType: String, amountTransferPerMonth: Int, amountTransfer: In
     }
 }
 
-fun cardToCommisions(cardType: String, amountTransferPerMonth: Int = 0, amountTransfer: Int): Int{
+fun cardToCommisions(cardType: String, amountTransferPerMonth: Int, amountTransfer: Int): Int{
     when(cardType){
         "Mastercard" -> when{
                             amountTransferPerMonth > 75000 -> return (amountTransfer * 0.006 + 20).toInt()
